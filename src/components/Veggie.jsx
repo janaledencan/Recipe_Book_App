@@ -38,7 +38,7 @@ function Veggie() {
         <h3>Veggie Recipes</h3>
 
         <Splide options={{
-          perPage: 3,
+          perPage: 4,
           arrows: false,
           drag: 'free',
           gap: "3rem",
