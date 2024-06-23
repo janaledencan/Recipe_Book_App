@@ -13,7 +13,7 @@ function Navigation() {
                 <h4>Main</h4>
             </NavLink>
 
-            <NavLink to={'/cuisine/Italian'}>
+            <NavLink to={'/cuisine/American'}>
                 <FaRegHeart />
                 <h4>My Favorite</h4>
             </NavLink >
@@ -23,7 +23,7 @@ function Navigation() {
                 <h4>Main</h4>
             </NavLink>
 
-            <NavLink to={'/cuisine/Italian'}>
+            <NavLink to={'/cuisine/American'}>
                 <FaRegHeart />
                 <h4>My Favorite</h4>
             </NavLink>
