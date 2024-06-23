@@ -8,23 +8,25 @@ import { NavLink } from "react-router-dom";
 function Navigation() {
     return (
         <List>
-            {/* <NavLink to={'/cusine/Italian'}>
+            <NavLink to={'/cuisine/Italian'}>
                 <GiCook />
                 <h4>Main</h4>
             </NavLink>
-            <NavLink>
+
+            <NavLink to={'/cuisine/Italian'}>
                 <FaRegHeart />
                 <h4>My Favorite</h4>
-            </NavLink> */}
+            </NavLink >
 
-            <div>
+            <NavLink to={'/cuisine/Italian'}>
                 <GiCook />
                 <h4>Main</h4>
-            </div>
-            <div>
+            </NavLink>
+
+            <NavLink to={'/cuisine/Italian'}>
                 <FaRegHeart />
                 <h4>My Favorite</h4>
-            </div>
+            </NavLink>
         </List>
     )
 }
