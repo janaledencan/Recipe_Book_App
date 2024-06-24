@@ -19,7 +19,7 @@ function Navigation() {
                 <h4>My Favorite</h4>
             </SLink >
 
-            <SLink to={''}>
+            <SLink to={'/myRecipes/'}>
                 <GiCookingPot />
                 <h4>My Recipes</h4>
             </SLink>
