@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { GiCook } from "react-icons/gi"
 import { FaRegHeart } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
+import { GiCookingPot } from "react-icons/gi";
 
 
 function Navigation() {
@@ -18,15 +19,11 @@ function Navigation() {
                 <h4>My Favorite</h4>
             </SLink >
 
-            <SLink to={'/cuisine/Italian'}>
-                <GiCook />
-                <h4>Main</h4>
+            <SLink to={''}>
+                <GiCookingPot />
+                <h4>My Recipes</h4>
             </SLink>
 
-            <SLink to={'/cuisine/American'}>
-                <FaRegHeart />
-                <h4>My Favorite</h4>
-            </SLink>
         </List>
     )
 }

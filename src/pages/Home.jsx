@@ -3,6 +3,7 @@ import Popular from "../components/Popular";
 import { motion } from "framer-motion";
 
 import React from 'react'
+import GlutenFree from "../components/GlutenFree";
 
 function Home() {
     return (
@@ -14,6 +15,7 @@ function Home() {
         >
             <Veggie />
             <Popular />
+            <GlutenFree />
         </motion.div>
     )
 }
