@@ -3,6 +3,9 @@ import Home from './Home';
 import Cuisine from './Cuisine';
 import Searched from './Searched';
 import Recipe from './Recipe';
+import Auth from './Auth';
+import CreateRecipes from './CreateRecipes';
+import SavedRecipes from './SavedRecipes';
 import { Route, Routes, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import MyRecipes from './MyRecipes';
@@ -19,6 +22,9 @@ function Pages() {
                 <Route path="/searched/:search" element={<Searched />} />
                 <Route path="/recipe/:name" element={<Recipe />} />
                 <Route path='/myRecipes/:name' element={<MyRecipes />} />
+                <Route path='/auth' element={<Auth />} />
+                <Route path='/create-recipe' element={<CreateRecipes />} />
+                <Route path='/saved-recipes' element={<SavedRecipes />} />
             </Routes >
         </AnimatePresence>
 
