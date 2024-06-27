@@ -1,11 +1,10 @@
 import Pages from "./pages/Pages";
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, Route, Routes, Link } from 'react-router-dom';
 import Search from "./components/Search";
 import Navigation from "./components/Navigation";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
 import { GiSpellBook } from "react-icons/gi";
-
+import Auth from './pages/Auth';
 
 function App() {
   return (
@@ -14,6 +13,7 @@ function App() {
         <Nav>
           <GiSpellBook />
           <Logo to={"/"}>Coqua</Logo>
+          <AuthenticationLink to="/auth">Login/Register</AuthenticationLink>
         </Nav>
         <Search />
         <Navigation />
@@ -27,7 +27,7 @@ function App() {
 const Logo = styled(Link)`
   text-decoration:none;
   font-size: 1.5rem;
-  fint-weight: 400;
+  font-weight: 400;
   font-family: 'Poppins', cursive;
 `;
 
@@ -41,6 +41,13 @@ const Nav = styled.div`
   svg{
     font-size: 2rem;
   }
+`;
+
+const AuthenticationLink = styled(Link)`
+  margin-left: 70%;
+  font-size: 1.5rem;
+  font-weight: 400;
+  font-family: 'Poppins', cursive;
 `;
 
 export default App;

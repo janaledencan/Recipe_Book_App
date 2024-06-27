@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { GiCook } from "react-icons/gi"
 import { FaRegHeart } from "react-icons/fa";
@@ -22,6 +21,16 @@ function Navigation() {
             <SLink to={'/myRecipes/'}>
                 <GiCookingPot />
                 <h4>My Recipes</h4>
+            </SLink>
+
+            <SLink to={'/saved-recipes'}>
+                <GiCookingPot />
+                <h4>My Recipes - Saved</h4>
+            </SLink>
+
+            <SLink to={'/create-recipe'}>
+                <GiCookingPot />
+                <h4>Create Recipe</h4>
             </SLink>
 
         </List>
