@@ -15,26 +15,25 @@ function App() {
   const logout = () => {
     setCookies("access_token", "");
     window.localStorage.removeItem("userID");
-    navigate("/auth");
+    navigate("/");
   }
 
   return (
     <div className="App">
-      <BrowserRouter>
-        <Nav>
-          <GiSpellBook />
-          <Logo to={"/"}>Coqua</Logo>
-          {!cookies.access_token ? (
-            <AuthenticationLink to="/auth">Login/Register</AuthenticationLink>
-          ) : (
-            <button onClick={logout}>Logout</button>
-          )}
 
-        </Nav>
-        <Search />
-        <Navigation />
-        <Pages />
-      </BrowserRouter>
+      <Nav>
+        <GiSpellBook />
+        <Logo to={"/"}>Coqua</Logo>
+        {!cookies.access_token ? (
+          <AuthenticationLink><Link to="/auth">Login/Register</Link></AuthenticationLink>
+        ) : (
+          <button onClick={logout}>Logout</button>
+        )}
+
+      </Nav>
+      <Search />
+      <Navigation />
+      <Pages />
 
     </div>
   );
@@ -59,7 +58,7 @@ const Nav = styled.div`
   }
 `;
 
-const AuthenticationLink = styled(Link)`
+const AuthenticationLink = styled.div`
   margin-left: 70%;
   font-size: 1.5rem;
   font-weight: 400;
