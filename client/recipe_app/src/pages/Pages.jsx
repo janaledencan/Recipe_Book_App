@@ -21,7 +21,7 @@ function Pages() {
                 <Route path='/cuisine/:type' element={<Cuisine />} />
                 <Route path="/searched/:search" element={<Searched />} />
                 <Route path="/recipe/:name" element={<Recipe />} />
-                <Route path='/myRecipes/:name' element={<MyRecipes />} />
+                <Route path='/myRecipes/' element={<MyRecipes />} />
                 <Route path='/auth' element={<Auth />} />
                 <Route path='/create-recipe' element={<CreateRecipes />} />
                 <Route path='/saved-recipes' element={<SavedRecipes />} />
