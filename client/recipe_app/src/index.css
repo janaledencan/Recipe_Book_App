@@ -85,6 +85,12 @@ input {
 
 .saved-recipes {
   width: 75%;
+  margin: auto;
+  border-radius: 15px;
+}
+
+.saved-recipes h1 {
+  margin: 5% 0%;
 }
 
 .create-recipe form ul,
@@ -98,7 +104,15 @@ input {
 .saved-recipes li {
   border: 1px solid black;
   padding: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 7%;
+  border-radius: 10%;
+}
+
+.myRecipe-container {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .create-recipe form h2 {
@@ -119,23 +133,46 @@ input {
   cursor: pointer;
 }
 
-.saved-recipes img {
-  max-width: 100%;
-  height: auto;
-  margin-bottom: 10px;
+.img-div {
+  width: 60%;
+}
+
+.myRecipe-container {
+  margin: auto;
 }
 
 .saved-recipes img {
-  width: 100%;
+  max-width: 100%;
+  height: auto;
+  margin: auto;
+}
+
+
+.saved-recipes h2 {
+  font-size: 2rem;
 }
 
 .saved-recipes p {
   max-width: 400px;
-  font-size: 12px;
+  font-size: 1.2rem;
 }
 
 .recipe-text {
   margin-top: 10%;
   height: 50vh;
   overflow-y: auto;
+}
+
+.btn-save {
+  width: 10%;
+  height: auto;
+  padding: 1.5% 1%;
+  color: white;
+  background: #ee6060;
+  border-radius: 15px;
+  margin: 1%;
+  border: none;
+  font-size: 1rem;
+  font-weight: 400;
+  cursor: pointer;
 }

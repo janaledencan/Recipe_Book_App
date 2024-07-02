@@ -15,23 +15,29 @@ function Search() {
 
     return (
         <FormStyle onSubmit={submitHandler}>
-            <div>
-                <FaSearch />
-                <input
-                    onChange={(e) => setInput(e.target.value)}
-                    type="text"
-                    value={input}
-                />
-
+            <div className="search-box">
+                <div>
+                    <FaSearch />
+                    <input
+                        onChange={(e) => setInput(e.target.value)}
+                        type="text"
+                        value={input}
+                    />
+                </div>
             </div>
+
         </FormStyle>
     )
 }
 
 
 const FormStyle = styled.form`
-    margin: 0rem 20rem;
+    margin: 0rem 10rem;
     
+    .search-box{
+        margin-auto;
+    }
+
     div{
         width: 100%;
         position: relative;
@@ -56,6 +62,11 @@ const FormStyle = styled.form`
         left: 0%;
         transform: translate(100%, -50%);
         color:white;
+    }
+    
+    @media (max-width: 800px) {
+        margin: 0 auto; // Center the form on small screens
+        padding: 0 1rem; // Add some horizontal padding for spacing
     }
 `;
 

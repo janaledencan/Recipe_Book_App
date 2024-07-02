@@ -3,6 +3,7 @@ import { useState } from 'react';
 import axios from 'axios';
 import { useGetUserID } from '../hooks/useGetUserID';
 import { useCookies } from "react-cookie";
+import "../index.css";
 
 function SavedRecipes() {
     const [recipes, setRecipes] = useState([]);
@@ -55,24 +56,35 @@ function SavedRecipes() {
 
     return (
         <div className='saved-recipes'>
-            <h1>Recipes</h1>
+            <h1> My Recipes</h1>
             <ul>
                 {recipes.map((recipe) => (
                     <li key={recipe._id}>
-                        <div>
+                        <div className="myRecipe-container">
                             <h2>{recipe.name}</h2>
+                            <div className='img-div'>
+                                <img src={recipe.imageUrl} alt={recipe.name} />
+                            </div>
+                            <p>Ingredients: </p>
+                            <ul>
+                                {recipe.ingredients.map((ingredient, index) => {
+                                    <li key={index}>{ingredient}</li>
+                                })
+                                }
+                            </ul>
+                            <div className='instructions'>
+                                <p>{recipe.instructions}</p>
+                            </div>
+                            <p>Cooking Time: {recipe.cookingTime} (minutes)</p>
                             <button
+                                className='btn-save'
                                 onClick={() => saveRecipe(recipe._id)}
                                 disabled={isRecipeSaved(recipe._id)}
                             >
                                 {isRecipeSaved(recipe._id) ? "Saved" : "Save"}
                             </button>
                         </div>
-                        <div className='instructions'>
-                            <p>{recipe.instructions}</p>
-                        </div>
-                        <img src={recipe.imageUrl} alt={recipe.name} />
-                        <p>Cooking Time: {recipe.cookingTime} (minutes)</p>
+
                     </li>
                 ))}
             </ul>

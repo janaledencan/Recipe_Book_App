@@ -4,6 +4,7 @@ import { FaRegHeart } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 import { GiCookingPot } from "react-icons/gi";
 import { MdAddCircleOutline } from "react-icons/md";
+import { IoFastFoodOutline } from "react-icons/io5";
 
 
 function Navigation() {
@@ -11,31 +12,27 @@ function Navigation() {
         <List>
             <SLink to={'/cuisine/Italian'}>
                 <GiCook />
-                <h4>Main</h4>
+                <h4>Italian</h4>
             </SLink>
 
             <SLink to={'/cuisine/American'}>
-                <FaRegHeart />
-                <h4>Saved</h4>
+                <IoFastFoodOutline />
+                <h4>American</h4>
             </SLink >
+
+            <SLink to={'/saved-recipes'}>
+                <FaRegHeart />
+                <h4>Favorite</h4>
+            </SLink>
 
             <SLink to={'/myRecipes/'}>
                 <GiCookingPot />
                 <h4>My Recipes</h4>
             </SLink>
 
-            <SLink to={'/saved-recipes'}>
-                <GiCookingPot />
-                <h4>My Recipes - Saved</h4>
-            </SLink>
-
             <SLink to={'/create-recipe'}>
                 <MdAddCircleOutline />
                 <h4>Create Recipe</h4>
-            </SLink>
-
-            <SLink to="/myFavoriteRecipes">
-                <FaRegHeart /> My Favorite Recipes
             </SLink>
 
         </List>

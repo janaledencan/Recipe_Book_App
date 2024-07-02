@@ -1,20 +1,15 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
-import { useParams, useNavigate } from "react-router-dom";
-import { useGetUserID } from '../hooks/useGetUserID';
-import { useCookies } from "react-cookie";
+import { useParams } from "react-router-dom";
+
 
 import React from 'react'
 
 function Recipe() {
 
     let params = useParams();
-    const navigate = useNavigate();
     const [details, setDetails] = useState({});
     const [activeTab, setActiveTab] = useState('instructions');
-    const userID = useGetUserID();
-    const [cookies,] = useCookies(["access_token"]);
-
 
     const fetchDetails = async () => {
         const data = await fetch(`https://api.spoonacular.com/recipes/${params.name}/information?apiKey=${process.env.REACT_APP_API_KEY}`);
@@ -23,54 +18,6 @@ function Recipe() {
         console.log(detailData);
     }
 
-    /*
-    const saveRecipe = async () => {
-        console.log(details);
-        const response = await fetch('http://localhost:3001/favorite', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                title: details.title,
-                image: details.image,
-                summary: details.summary,
-                instructions: details.instructions,
-                extendedIngredients: details.extendedIngredients,
-            }),
-        });
-
-        if (response.ok) {
-            navigate('/myRecipes');
-        } else {
-            console.error('Failed to save the recipe');
-        }
-    };
-*/
-    const saveFavoriteRecipe = async () => {
-        const response = await fetch('http://localhost:3001/recipes/favorite', {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json',
-                authorization: cookies.access_token
-            },
-            body: JSON.stringify({
-                userID: userID,
-                recipeID: params.name,
-                title: details.title,
-                image: details.image,
-                summary: details.summary,
-                instructions: details.instructions,
-                extendedIngredients: details.extendedIngredients,
-            }),
-        });
-
-        if (response.ok) {
-            navigate('/myFavoriteRecipes');
-        } else {
-            console.error('Failed to save the recipe as favorite');
-        }
-    };
 
 
     useEffect(() => {
@@ -82,7 +29,6 @@ function Recipe() {
             <div>
                 <h2>{details.title}</h2>
                 <img src={details.image} alt="" />
-                <button onClick={saveFavoriteRecipe}>Save as Favorite</button>
             </div>
             <Info>
                 <Button className={activeTab === 'instructions' ? 'active' : ''} onClick={() => setActiveTab("instructions")}>Instructions</Button>

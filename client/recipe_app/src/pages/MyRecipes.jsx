@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useState } from 'react';
 import axios from 'axios';
 import { useGetUserID } from '../hooks/useGetUserID';
+import "../index.css";
 
 function MyRecipes() {
     const [savedRecipes, setSavedRecipes] = useState([]);
@@ -34,19 +35,29 @@ function MyRecipes() {
             <ul>
                 {savedRecipes.map((recipe) => (
                     <li key={recipe._id}>
-                        <div>
+                        <div className="myRecipe-container">
                             <h2>{recipe.name}</h2>
+                            <div className='img-div'>
+                                <img src={recipe.imageUrl} alt={recipe.name} />
+                            </div>
+                            <p>Ingredients: </p>
+                            <ul>
+                                {recipe.ingredients.map((ingredient, index) => {
+                                    <li key={index}>{ingredient}</li>
+                                })
+                                }
+                            </ul>
+                            <div className='instructions'>
+                                <p>{recipe.instructions}</p>
+                            </div>
+                            <p>Cooking Time: {recipe.cookingTime} (minutes)</p>
                         </div>
-                        <div className='instructions'>
-                            <p>{recipe.instructions}</p>
-                        </div>
-                        <img src={recipe.imageUrl} alt={recipe.name} />
-                        <p>Cooking Time: {recipe.cookingTime} (minutes)</p>
                     </li>
                 ))}
             </ul>
         </div>
     )
 }
+
 
 export default MyRecipes
