@@ -41,6 +41,32 @@ router.put("/", verifyToken, async (req, res) => {
     }
 });
 
+/*const recipe = await RecipeModel.findById(req.body.recipeID);*/
+
+// Save favorite recipe
+router.put("/favorite", verifyToken, async (req, res) => {
+    console.log("In /favourite endpoint request" + req);
+    try {
+        const recipe = {
+            recipeID: req.body.recipeID,
+            title: req.body.title,
+            image: req.body.image,
+            summary: req.body.summary,
+            instructions: req.body.instructions,
+            extendedIngredients: req.body.extendedIngredients,
+        };
+        console.log("In /favourite endpoint" + recipe.title);
+        const user = await UserModel.findById(req.body.userID);
+        user.favoriteRecipes.push(recipe);
+        await user.save();
+        console.log("Saved favorite recepie for user");
+        res.json({ favoriteRecipes: user.favoriteRecipes });
+    } catch (err) {
+        res.json(err);
+    }
+});
+
+
 
 router.get("/savedRecipes/ids/:userID", async (req, res) => {
     try {
@@ -64,6 +90,20 @@ router.get("/savedRecipes/:userID", async (req, res) => {
         res.json(err);
     }
 
+});
+
+//   const favoriteRecipes = await RecipeModel.find({
+//             _id: { $in: user.favoriteRecipes },
+//         });
+// Get favorite recipes
+router.get("/favoriteRecipes/:userID", async (req, res) => {
+    try {
+        const user = await UserModel.findById(req.params.userID);
+
+        res.json(user.favoriteRecipes);
+    } catch (err) {
+        res.json(err);
+    }
 });
 
 export { router as recipesRouter };
