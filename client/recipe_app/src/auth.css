@@ -1,0 +1,134 @@
+.loginSignUp {
+    width: 100%;
+    height: 90vh;
+    background: linear-gradient(0deg, rgba(255, 255, 255, 1) 0%, #D67979 100%);
+    padding-top: 100px;
+}
+
+
+.loginSignUp-container {
+    width: 580px;
+    height: 600px;
+    background-color: white;
+    margin: auto;
+    padding: 40px 60px;
+}
+
+.loginSignUp-container h1 {
+    margin: 20px 0px;
+}
+
+.loginSignUp-fields {
+    display: flex;
+    flex-direction: column;
+    gap: 29px;
+    margin-top: 30px;
+}
+
+.loginSignUp-fields input {
+    height: 68px;
+    width: 100%;
+    padding-left: 20px;
+    border: 1px solid #c9c9c9;
+    outline: none;
+    color: #5c5c5c;
+    font-size: 18px;
+}
+
+.loginSignUp-container button {
+    width: 100%;
+    height: 68px;
+    color: white;
+    background: #ee6060;
+    border-radius: 15px;
+    margin-top: 30px;
+    border: none;
+    font-size: 24px;
+    font-weight: 500;
+    cursor: pointer;
+
+}
+
+.logout-btn {
+    width: 10%;
+    height: auto;
+    color: white;
+    background: #ee6060;
+    border-radius: 12px;
+    margin-top: 30px;
+    border: none;
+    font-size: 1.3rem;
+    font-weight: 400;
+    cursor: pointer;
+
+}
+
+.loginSignUp-login {
+    margin-top: 20px;
+    color: #5c5c5c;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.loginSignUp-login span {
+    color: #ee6060;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+@media(max-width:1280px) {
+    .loginSignUp {
+        padding-top: 50px;
+        height: 70vh;
+    }
+
+    .loginSignUp-container {
+        width: auto;
+        max-width: 500px;
+        max-height: 500px;
+    }
+
+    .loginSignUp-container h1 {
+        margin: 10px 0px;
+    }
+
+    .loginSignUp-fields {
+        gap: 20px;
+        margin-top: 20px;
+    }
+
+    .loginSignUp-fields input {
+        height: 65px;
+        width: 93%;
+    }
+
+    .loginSignUp-container button {
+        width: 93%;
+    }
+
+    .loginSignUp-login {
+        font-size: 16px;
+    }
+
+}
+
+@media(max-width:800px) {
+
+    .loginSignUp-container {
+        padding: 20px 30px;
+    }
+
+    .loginSignUp-container h1 {
+        font-size: 24px;
+    }
+
+    .loginSignUp-fields input {
+        height: 50px;
+    }
+
+    .loginSignUp-container button {
+        height: 50px;
+        font-size: 16px;
+    }
+
+}

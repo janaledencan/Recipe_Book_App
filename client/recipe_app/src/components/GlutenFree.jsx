@@ -36,7 +36,7 @@ function GlutenFree() {
     return (
         <div>
             <Wrapper>
-                <h3>Gluten Free Recipes</h3>
+                <h2>Gluten Free Recipes</h2>
 
                 <Splide options={{
                     perPage: 4,

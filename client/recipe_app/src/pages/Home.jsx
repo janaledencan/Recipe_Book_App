@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import React from 'react'
 import GlutenFree from "../components/GlutenFree";
 
+
 function Home() {
     return (
         <motion.div

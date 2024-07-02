@@ -34,7 +34,7 @@ function SavedRecipes() {
         };
 
         fetchRecipe();
-        fetchSavedRecipe();
+        if (cookies.access_token) fetchSavedRecipe();
 
     }, []);
 

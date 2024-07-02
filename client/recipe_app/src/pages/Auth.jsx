@@ -1,30 +1,50 @@
 import React, { useState } from 'react';
-import axios from "axios";
 import { useCookies } from "react-cookie";
 import { useNavigate } from 'react-router-dom';
+import axios from "axios";
+import "../auth.css";
 
-function Auth() {
+const Auth = () => {
+    const [state, setState] = useState("Login");
+    const [formData, setFormData] = useState({
+        username: "",
+        password: "",
+    });
+
+    const changeHandler = (e) => {
+        setFormData({ ...formData, [e.target.name]: e.target.value });
+    };
+
     return (
-        <div className='auth'>
-            <Login />
-            <Register />
+        <div className='loginSignUp'>
+            <div className="loginSignUp-container">
+                {state === "Login" ? (
+                    <Login formData={formData} changeHandler={changeHandler} />
+                ) : (
+                    <Register formData={formData} changeHandler={changeHandler} />
+                )}
+                {state === "Sign up" ?
+                    <p className="loginSignUp-login">
+                        Already have an account? <span onClick={() => { setState("Login") }}>Login here</span>
+                    </p>
+                    :
+                    <p className="loginSignUp-login">
+                        Create an account? <span onClick={() => { setState("Sign up") }}>Click here</span>
+                    </p>
+                }
+            </div>
         </div>
-    )
-}
+    );
+};
 
-export default Auth
-
-const Login = () => {
-    const [username, setUsername] = useState("");
-    const [password, setPassword] = useState("");
-
+const Login = ({ formData, changeHandler }) => {
     const [, setCookies] = useCookies(["access_token"]);
     const navigate = useNavigate();
 
     const onSubmit = async (event) => {
         event.preventDefault();
         try {
-            const response = await axios.post("http://localhost:3001/auth/login", { username, password });
+            const response = await axios.post("http://localhost:3001/auth/login", formData);
             setCookies("access_token", response.data.token);
             window.localStorage.setItem("userID", response.data.userID);
             navigate("/");
@@ -34,24 +54,19 @@ const Login = () => {
     };
 
     return <Form
-        username={username}
-        setUsername={setUsername}
-        password={password}
-        setPassword={setPassword}
+        formData={formData}
+        changeHandler={changeHandler}
         label="Login"
         onSubmit={onSubmit}
         formId="login"
     />;
 };
 
-const Register = () => {
-    const [username, setUsername] = useState("");
-    const [password, setPassword] = useState("");
-
+const Register = ({ formData, changeHandler }) => {
     const onSubmit = async (event) => {
         event.preventDefault();
         try {
-            await axios.post("http://localhost:3001/auth/register", { username, password });
+            await axios.post("http://localhost:3001/auth/register", formData);
             alert("Registration Completed! Now Login!");
         } catch (err) {
             console.error(err);
@@ -59,17 +74,15 @@ const Register = () => {
     };
 
     return <Form
-        username={username}
-        setUsername={setUsername}
-        password={password}
-        setPassword={setPassword}
+        formData={formData}
+        changeHandler={changeHandler}
         label="Register"
         onSubmit={onSubmit}
         formId="register"
     />;
 };
 
-const Form = ({ username, setUsername, password, setPassword, label, onSubmit, formId }) => {
+const Form = ({ formData, changeHandler, label, onSubmit, formId }) => {
     return (
         <div className='auth-container'>
             <form onSubmit={onSubmit}>
@@ -79,8 +92,9 @@ const Form = ({ username, setUsername, password, setPassword, label, onSubmit, f
                     <input
                         type="text"
                         id={`${formId}-username`}
-                        value={username}
-                        onChange={(event) => setUsername(event.target.value)}
+                        name="username"
+                        value={formData.username}
+                        onChange={changeHandler}
                     />
                 </div>
 
@@ -89,12 +103,16 @@ const Form = ({ username, setUsername, password, setPassword, label, onSubmit, f
                     <input
                         type="password"
                         id={`${formId}-password`}
-                        value={password}
-                        onChange={(event) => setPassword(event.target.value)}
+                        name="password"
+                        value={formData.password}
+                        onChange={changeHandler}
                     />
                 </div>
                 <button type='submit'>{label}</button>
             </form>
         </div>
     );
-}
+};
+
+export default Auth;
+

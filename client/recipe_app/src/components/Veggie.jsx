@@ -36,7 +36,7 @@ function Veggie() {
   return (
     <div>
       <Wrapper>
-        <h3>Veggie Recipes</h3>
+        <h2>Veggie Recipes</h2>
 
         <Splide options={{
           perPage: 4,

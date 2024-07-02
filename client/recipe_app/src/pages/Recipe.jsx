@@ -32,7 +32,7 @@ function Recipe() {
                 <Button className={activeTab === 'instructions' ? 'active' : ''} onClick={() => setActiveTab("instructions")}>Instructions</Button>
                 <Button className={activeTab === 'ingredients' ? 'active' : ''} onClick={() => setActiveTab("ingredients")}>Ingredients</Button>
                 {activeTab === 'instructions' && (
-                    <div>
+                    <div className="recipe-text">
                         <h3 dangerouslySetInnerHTML={{ __html: details.summary }}></h3>
                         <h3 dangerouslySetInnerHTML={{ __html: details.instructions }}></h3>
                     </div>
@@ -63,6 +63,8 @@ const DetailWrapper = styled.div`
 
     h2{
         margin-bottom: 2rem;
+        font-size: 2rem;
+        color:#ee6060;
     }
     li{
         font-size: 1.2rem;

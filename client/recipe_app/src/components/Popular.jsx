@@ -37,7 +37,7 @@ function Popular() {
   return (
     <div>
       <Wrapper>
-        <h3>Popular Recipes</h3>
+        <h2>Popular Recipes</h2>
 
         <Splide options={{
           perPage: 3,

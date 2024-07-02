@@ -27,9 +27,15 @@ h4 {
 }
 
 h3 {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   color: rgb(52, 52, 52);
   line-height: 2.5rem;
+  margin: 2rem 0rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+  color: rgb(52, 52, 52);
   margin: 2rem 0rem;
 }
 
@@ -39,27 +45,6 @@ a {
 
 
 
-
-.auth {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background-color: #f2f2f2;
-}
-
-.auth-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
-  background-color: white;
-  border-radius: 5px;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-  margin: 20px;
-  width: 400px;
-}
 
 .form-group {
   display: flex;
@@ -88,8 +73,9 @@ input {
   background-color: white;
   border-radius: 5px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-  margin: 20px;
   width: 400px;
+  margin: 5% auto;
+
 }
 
 .create-recipe form {
@@ -119,6 +105,20 @@ input {
   margin-top: 0;
 }
 
+.create-recipe-btn {
+  width: 100%;
+  height: auto;
+  padding: 4% 2%;
+  color: white;
+  background: #ee6060;
+  border-radius: 15px;
+  margin: 10% 0%;
+  border: none;
+  font-size: 1.2rem;
+  font-weight: 400;
+  cursor: pointer;
+}
+
 .saved-recipes img {
   max-width: 100%;
   height: auto;
@@ -132,4 +132,10 @@ input {
 .saved-recipes p {
   max-width: 400px;
   font-size: 12px;
+}
+
+.recipe-text {
+  margin-top: 10%;
+  height: 50vh;
+  overflow-y: auto;
 }

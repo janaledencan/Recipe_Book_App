@@ -2,10 +2,13 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useGetUserID } from '../hooks/useGetUserID';
 import { useNavigate } from "react-router-dom";
+import { useCookies } from "react-cookie";
 
 function CreateRecipes() {
 
     const userID = useGetUserID();
+    const [cookies,] = useCookies(["access_token"]);
+
     const [recipe, setRecipe] = useState({
         name: "",
         ingredients: [],
@@ -38,7 +41,9 @@ function CreateRecipes() {
     const onSubmit = async (event) => {
         event.preventDefault();
         try {
-            await axios.post("http://localhost:3001/recipes", recipe);
+            await axios.post("http://localhost:3001/recipes", recipe,
+                { headers: { authorization: cookies.access_token } }
+            );
             alert("Recipe Created!");
             navigate("/saved-recipes")
         } catch (err) {
@@ -47,6 +52,7 @@ function CreateRecipes() {
     };
 
     return (
+
         <div className='create-recipe'>
             <h2>Create Recipe</h2>
             <form onSubmit={onSubmit}>
@@ -73,10 +79,12 @@ function CreateRecipes() {
                 <label htmlFor="CookingTime">Cooking Time (minutes)</label>
                 <input type="number" id='cookingTime' name='cookingTime' onChange={handleChange} />
 
-                <button type='submit'>Create Recipe</button>
+                <button className='create-recipe-btn' type='submit'>Create Recipe</button>
 
             </form>
         </div>
+
+
     )
 }
 
