@@ -110,6 +110,11 @@
         font-size: 16px;
     }
 
+    .logout-btn {
+        width: 15%;
+        height: auto;
+    }
+
 }
 
 @media(max-width:800px) {
@@ -131,4 +136,8 @@
         font-size: 16px;
     }
 
+    .logout-btn {
+        width: 25%;
+        height: auto;
+    }
 }

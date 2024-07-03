@@ -171,8 +171,25 @@ input {
   background: #ee6060;
   border-radius: 15px;
   margin: 1%;
+  margin-top: 4%;
   border: none;
   font-size: 1rem;
   font-weight: 400;
   cursor: pointer;
+}
+
+.myRecipes-txt {
+  margin-top: 5%;
+}
+
+@media(max-width:1200px) {
+  .btn-save {
+    width: 30%;
+    height: auto;
+    margin-top: 5%;
+  }
+
+  .myRecipes-txt {
+    margin: auto;
+  }
 }

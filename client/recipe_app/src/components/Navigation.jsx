@@ -6,8 +6,8 @@ import { GiCookingPot } from "react-icons/gi";
 import { MdAddCircleOutline } from "react-icons/md";
 import { IoFastFoodOutline } from "react-icons/io5";
 
-
 function Navigation() {
+
     return (
         <List>
             <SLink to={'/cuisine/Italian'}>

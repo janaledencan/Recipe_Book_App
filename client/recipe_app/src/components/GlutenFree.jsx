@@ -43,6 +43,14 @@ function GlutenFree() {
                     arrows: false,
                     drag: 'free',
                     gap: "3rem",
+                    breakpoints: {
+                        800: {
+                            perPage: 2,
+                        },
+                        450: {
+                            perPage: 1,
+                        },
+                    }
                 }}>
                     {glutenFree.map((recipe) => {
                         return (

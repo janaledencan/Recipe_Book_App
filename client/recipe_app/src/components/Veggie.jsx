@@ -43,6 +43,14 @@ function Veggie() {
           arrows: false,
           drag: 'free',
           gap: "3rem",
+          breakpoints: {
+            800: {
+              perPage: 2,
+            },
+            450: {
+              perPage: 1,
+            },
+          }
         }}>
           {veggie.map((recipe) => {
             return (
@@ -65,6 +73,7 @@ function Veggie() {
 
 const Wrapper = styled.div`
     margin: 4rem 0rem;
+
 `;
 
 const Card = styled.div`
@@ -98,6 +107,7 @@ const Card = styled.div`
       justify-content: center;
       align-items: center;
     }
+
 `;
 
 const Gradient = styled.div`
