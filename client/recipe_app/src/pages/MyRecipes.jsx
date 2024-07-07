@@ -40,6 +40,8 @@ function MyRecipes() {
                             <div className='img-div'>
                                 <img src={recipe.imageUrl} alt={recipe.name} />
                             </div>
+                            <p>Ingredients: </p>
+                            <p>{recipe.ingredients.join(', ')}</p>
                             <div className="myRecipes-txt">
                                 <div className='instructions'>
                                     <p>{recipe.instructions}</p>

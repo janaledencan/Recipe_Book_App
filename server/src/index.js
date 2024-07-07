@@ -20,5 +20,5 @@ mongoose.connect(
     `mongodb+srv://janaLed:${password}@recipes.wd5trug.mongodb.net/recipes`
 
 );
-//mongodb+srv://janaLed:${password}@recipes.wd5trug.mongodb.net/?retryWrites=true&w=majority&appName=recipes
+
 app.listen(3001, () => console.log("SERVER STARTED!")); 

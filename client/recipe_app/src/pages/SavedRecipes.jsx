@@ -56,7 +56,7 @@ function SavedRecipes() {
 
     return (
         <div className='saved-recipes'>
-            <h1> My Recipes</h1>
+            <h1>Recipes</h1>
             <ul>
                 {recipes.map((recipe) => (
                     <li key={recipe._id}>
@@ -65,13 +65,14 @@ function SavedRecipes() {
                             <div className='img-div'>
                                 <img src={recipe.imageUrl} alt={recipe.name} />
                             </div>
+                            <p>Ingredients: </p>
+                            <p>{recipe.ingredients.join(', ')}</p>
                             <div className="myRecipes-txt">
                                 <div className='instructions'>
                                     <p>{recipe.instructions}</p>
                                 </div>
                                 <p>Cooking Time: {recipe.cookingTime} (minutes)</p>
                             </div>
-
                             <button
                                 className='btn-save'
                                 onClick={() => saveRecipe(recipe._id)}
